@@ -1,0 +1,73 @@
+{
+	"name": "compiled-stack",
+	"author": "Aaron Noel De Leon <here@nelo.is>",
+	"description": "Compiled tech stack starter template for lean web applications.",
+	"version": "0.0.1",
+	"license": "MIT",
+	"scripts": {
+		"dev": "sapper dev",
+		"build": "sapper build --legacy",
+		"export": "sapper export --legacy",
+		"start": "node __sapper__/build",
+		"cy:run": "cypress run",
+		"cy:open": "cypress open",
+		"test": "run-p --race dev cy:run",
+		"format": "prettier --write \"src/**/*.{svelte,html,js,css,md}\""
+	},
+	"dependencies": {
+		"compression": "^1.7.1",
+		"polka": "^1.0.0-next.11",
+		"sirv": "^0.4.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.0.0",
+		"@babel/plugin-syntax-dynamic-import": "^7.0.0",
+		"@babel/plugin-transform-runtime": "^7.0.0",
+		"@babel/preset-env": "^7.0.0",
+		"@babel/runtime": "^7.0.0",
+		"@fullhuman/postcss-purgecss": "^1.2.0",
+		"@rollup/plugin-commonjs": "^11.0.2",
+		"@rollup/plugin-json": "^4.0.2",
+		"@rollup/plugin-node-resolve": "^7.1.1",
+		"@rollup/plugin-replace": "^2.3.1",
+		"@sveltejs/svelte-virtual-list": "^3.0.1",
+		"blockstack": "^21.0.0",
+		"cssnano": "^4.1.10",
+		"focus-visible": "^5.0.2",
+		"husky": ">=1",
+		"lint-staged": ">=8",
+		"lodash": "^4.17.15",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^7.0.17",
+		"postcss-import": "^12.0.1",
+		"postcss-nested": "^4.1.2",
+		"postcss-preset-env": "^6.7.0",
+		"postcss-url": "^8.0.0",
+		"prettier": "^1.18.2",
+		"prettier-plugin-svelte": "^0.7.0",
+		"purgecss-from-svelte": "^2.0.2",
+		"rollup": "^1.12.0",
+		"rollup-plugin-babel": "^4.4.0",
+		"rollup-plugin-copy": "^3.3.0",
+		"rollup-plugin-node-builtins": "^2.1.2",
+		"rollup-plugin-postcss": "^2.0.3",
+		"rollup-plugin-svelte": "^5.0.1",
+		"rollup-plugin-terser": "^4.0.4",
+		"sapper": "^0.27.0",
+		"svelte": "^3.0.0",
+		"svelte-preprocess": "^3.0.2",
+		"tailwindcss": "^1.1.2",
+		"tailwindcss-transitions": "^2.0.1"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{svelte,html,js,css,md}": [
+			"prettier --write",
+			"git add"
+		]
+	}
+}

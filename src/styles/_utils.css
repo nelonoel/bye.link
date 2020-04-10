@@ -1,0 +1,14 @@
+.truncate-3 {
+  @apply .overflow-hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.border-gray-350 {
+	border-color: #D5DDE6;
+}
+
+.text-caps {
+	@apply .uppercase .text-xs .tracking-widest .font-bold;
+}

@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=DM Sans:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+	@apply font-sans;
+}
+
+body {
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+pre,
+code {
+	font-family: 'IBM Plex Mono', menlo, inconsolata, monospace;
+}
