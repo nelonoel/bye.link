@@ -1,13 +1,6 @@
 <script context="module">
-	import assets from '../../../data/assets'
-
 	export async function preload(page, session) {
-		const { asset, ...params } = page.params
-		if (asset in assets) {
-			return { asset: assets[asset], ...params }
-		}
-
-		return this.redirect(302, '/404');
+		return page.params
 	}
 </script>
 
@@ -17,18 +10,18 @@
 	import Content from '../_components/Main/Content.svelte'
 	import List from '../_components/List/index.svelte'
 
-	export let user
-	export let asset = {
-		title: 'Loading..'
-	}
+	import assets from '../../../data/assets'
+	export let asset
 	export let segment
+
+	const props = assets[asset]
 </script>
 
 <svelte:head>
-	<title>{asset.title}</title>
+	<title>{props.title}</title>
 </svelte:head>
 
-<List />
+<List {segment} />
 
 <Container
 	class="lg:mt-2 xl:mt-0 border-l-0 lg:border-l border-t-0 lg:border-t xl:border-t-0 border-gray-400 lg:rounded-tl-lg xl:rounded-tl-none overflow-hidden"
@@ -37,7 +30,7 @@
 	<main class="flex flex-grow items-center justify-center">
 		<figure class="text-gray-200">
 			<svg fill="currentColor" viewBox="0 0 20 20" class="w-64 h-64">
-				{@html asset.icons.fill}
+				{@html props.icons.fill}
 			</svg>
 		</figure>
 		<!-- <slot /> -->
