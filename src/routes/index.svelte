@@ -1,11 +1,11 @@
 <style>
   .highlight {
-    box-shadow: inset 0 -0.6666em 0 theme('colors.yellow.400');
+    box-shadow: inset 0 -0.5em 0 theme('colors.yellow.400');
   }
   .fade {
     background: linear-gradient(
       90deg,
-      theme('colors.gray.800'),
+      theme('colors.gray.700'),
       theme('colors.gray.400')
     );
     -webkit-text-fill-color: transparent;
@@ -28,17 +28,12 @@
     class="mb-4 text-4xl max-w-lg mx-auto text-center leading-tight font-serif">
     Entrust your
     <span class="highlight text-yellow-900 font-serif">digital assets</span>
-    when you
-    <span class="fade text-gray-700 font-serif">pass away.</span>
   </h1>
   <p class="mb-10 text-xl text-gray-700 max-w-lg mx-auto text-center">
     Send your
     <strong>trusted contacts</strong>
-    a link that can be accessed
-    <span class="underline">only</span>
-    when you become
-    <strong>unreachable</strong>
-    .
+    a link that can be accessed only when you become
+    <span class="fade">unreachable.</span>
   </p>
   <p class="text-sm text-center text-gray-600 mb-8 sm:mb-2">
     Subscribe to be notified upon launch or
