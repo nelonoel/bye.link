@@ -1,13 +1,5 @@
-<!-- <script context="module">
-	export async function preload(page, session) {
-		return page.params
-	}
-</script> -->
-
 <script>
-	// import userStore from '../../stores/user'
-	import Container from './_components/Main/Container.svelte'
-	// export let user
+	import Container from 'components/Main/Container.svelte'
 </script>
 
 <Container class="items-center justify-center">

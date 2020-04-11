@@ -1,5 +1,5 @@
 <script>
-	export let href = null
+  export let href = null
   export let count = 0
   export let isActive = false
 </script>
@@ -22,12 +22,14 @@
 
 <li class={$$props.class}>
   <a
-  	rel="prefetch"
-    class="flex items-center justify-between w-full px-4 sm:px-2 lg:px-3 xl:px-4 py-3 sm:py-2 lg:py-3 hover:bg-gray-700
-    hover:text-gray-100 cursor-pointer"
+    rel="prefetch"
+    class="flex items-center justify-between w-full px-4 sm:px-2 lg:px-3 xl:px-4
+    py-3 sm:py-2 lg:py-3 hover:bg-gray-700 hover:text-gray-100 cursor-pointer"
     class:active={isActive}
     {href}>
-    <div class="flex flex-row sm:flex-col lg:flex-row items-start sm:items-center lg:items-start">
+    <div
+      class="flex flex-row sm:flex-col lg:flex-row items-start sm:items-center
+      lg:items-start">
       <figure>
         <svg
           fill="none"
@@ -45,7 +47,9 @@
     {#if count > 0}
       <div
         data-count
-        class="inline-flex sm:hidden lg:inline-flex sm:top-0 sm:right-0 items-center justify-center px-2 bg-gray-900 text-white rounded-full text-xs tracking-wide">
+        class="inline-flex sm:hidden lg:inline-flex sm:top-0 sm:right-0
+        items-center justify-center px-2 bg-gray-900 text-white rounded-full
+        text-xs tracking-wide">
         {count}
       </div>
     {/if}

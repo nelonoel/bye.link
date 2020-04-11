@@ -1,10 +1,17 @@
 <script>
-	import user from '../stores/user'
-	import { onMount } from 'svelte'
+  import { onMount } from 'svelte'
+  import path from 'stores/path'
+  import user from 'stores/user'
 
-	onMount(() => {
-		user.initialize()
-	})
+  export let segment = ''
+
+  $: if (segment.match(/^@[a-zA-Z0-9_]{8,38}/)) {
+    path.setSlug('user', segment)
+  }
+
+  onMount(() => {
+    user.initialize()
+  })
 </script>
 
 <slot />
