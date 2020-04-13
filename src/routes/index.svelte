@@ -1,6 +1,6 @@
 <style>
   .highlight {
-    box-shadow: inset 0 -0.5em 0 theme('colors.yellow.400');
+    box-shadow: inset 0 -0.5em 0 theme('colors.yellow.300');
   }
   .fade {
     background: linear-gradient(
@@ -25,9 +25,10 @@
   <figure class="text-3xl mb-4">👋</figure>
   <h6 class="mb-2 text-gray-600 text-caps">Introducing bye.link</h6>
   <h1
-    class="mb-4 text-4xl max-w-lg mx-auto text-center leading-tight font-serif">
+    class="mb-4 text-6xl max-w-lg mx-auto text-center leading-none
+    font-extrabold">
     Entrust your
-    <span class="highlight text-yellow-900 font-serif">digital assets</span>
+    <span class="highlight text-yellow-900">digital assets</span>
   </h1>
   <p class="mb-10 text-xl text-gray-700 max-w-lg mx-auto text-center">
     Send your
@@ -42,7 +43,7 @@
   </p>
   <form
     class="flex flex-col sm:flex-row justify-center items-center sm:items-end
-    bg-gray-300 p-6 sm:p-4 rounded-lg"
+    bg-gray-200 p-6 sm:p-4 rounded-lg"
     name="subscribe"
     method="POST"
     data-netlify="true">
@@ -50,7 +51,7 @@
       <span class="text-caps text-gray-500">Name</span>
       <input
         class="text-sm flex-grow rounded px-2 py-1 bg-gray-100 border
-        border-gray-400 focus:bg-white focus:border-blue-400 focus:outline-none
+        border-gray-300 focus:bg-white focus:border-blue-300 focus:outline-none
         min-w-0"
         type="text"
         name="name" />
@@ -59,14 +60,14 @@
       <span class="text-caps text-gray-500">Email</span>
       <input
         class="text-sm flex-grow rounded px-2 py-1 bg-gray-100 border
-        border-gray-400 focus:bg-white focus:border-blue-400 focus:outline-none
+        border-gray-300 focus:bg-white focus:border-blue-300 focus:outline-none
         min-w-0"
         type="email"
         name="email" />
     </label>
     <button
-      class="flex items-center justify-center rounded-md bg-blue-600
-      hover:bg-blue-500 focus:bg-blue-500 focus:outline-none text-white text-sm
+      class="flex items-center justify-center rounded-md bg-blue-500
+      hover:bg-blue-550 focus:bg-blue-550 focus:outline-none text-white text-sm
       py-1 border border-transparent w-24 px-4 w-full h-full mx-2 mt-3 mb-2
       sm:mb-3"
       type="submit">

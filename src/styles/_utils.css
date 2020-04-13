@@ -5,10 +5,14 @@
   -webkit-box-orient: vertical;
 }
 
-.border-gray-350 {
-	border-color: #D5DDE6;
+.text-caps {
+  @apply .uppercase .text-xs .tracking-widest .font-semibold;
 }
 
-.text-caps {
-	@apply .uppercase .text-xs .tracking-widest .font-bold;
+.transition-color {
+  @apply .transition-colors .duration-150 .ease-in;
+}
+
+.bg-blurred {
+  backdrop-filter: blur(3px);
 }

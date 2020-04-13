@@ -1,5 +1,4 @@
 import { writable } from 'svelte/store'
-
 const slugs = ['user', 'asset', 'item', 'action']
 
 export default (() => {

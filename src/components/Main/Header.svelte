@@ -1,27 +1,17 @@
 <script>
   import path from 'stores/path'
+  import getAssetMetadata from 'utils/getAssetMetadata'
+  import ListToggle from 'components/List/Toggle.svelte'
+  $: color = getAssetMetadata($path.asset).color
 </script>
 
-<header class="flex justify-between h-16 border-b border-gray-300">
+<header
+  class="bg-gray-100 opacity-90 bg-blurred flex justify-between h-16 w-full">
   <div class="flex">
-    <a
-      href={`/${$path.user}/${$path.asset}`}
-      class="flex flex-col items-center justify-center text-gray-600
-      hover:text-gray-700 px-3 lg:hidden">
-      <svg
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        class="w-6 h-6">
-        <path d="M4 6h16M4 12h16M4 18h7" />
-      </svg>
-    </a>
-    <div
-      class="flex items-center pl-1 lg:pl-3 pr-4 w-primary-sidebar
-      cursor-pointer">
+    <ListToggle
+      class="hidden sm:flex lg:hidden text-gray-600 hover:text-gray-700 pl-3
+      pr-2 focus:outline-none" />
+    <div class="flex items-center pl-3 sm:pl-1 lg:pl-3 pr-4 cursor-pointer">
       <picture class="rounded-full bg-gray-100 text-gray-400 relative">
         <svg
           fill="currentColor"
@@ -50,25 +40,23 @@
       </picture>
       <div
         class="flex justify-center items-center rounded-full bg-gray-400
-        text-white -ml-6 relative w-8 h-8 border-2 border-gray-100 text-sm
-        font-bold">
+        text-white -ml-6 relative w-8 h-8 border-2 border-gray-100 text-sm">
         3
       </div>
       <span class="ml-2 text-gray-600">Shared</span>
     </div>
   </div>
-  <div class="flex items-center px-4">
+  <div class="flex items-center px-3 md:px-4">
     <button
-      class="flex items-center justify-center rounded-full bg-gray-100
-      hover:bg-gray-200 focus:bg-gray-200 focus:outline-none text-gray-600
-      hover:text-gray-700 focus:text-gray-700 py-2 px-5 ml-2">
+      class="flex items-center justify-center focus:outline-none text-gray-400
+      hover:text-gray-600 focus:text-gray-600 py-2 mx-2 transition-color">
       Cancel
     </button>
     <button
-      class="flex whitespace-no-wrap items-center justify-center rounded-full
-      bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 focus:bg-blue-500
-      focus:outline-none text-white py-2 px-5 ml-2">
-      Save Changes
+      class={`flex whitespace-no-wrap items-center justify-center rounded-full
+      bg-${color}-500 hover:bg-${color}-550 focus:bg-${color}-550
+      focus:outline-none text-white py-2 px-5 ml-2 transition-color`}>
+      Save
     </button>
   </div>
 </header>

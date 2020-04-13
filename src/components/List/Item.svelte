@@ -1,15 +1,17 @@
 <script>
+  import { list } from 'stores/ui'
   import path from 'stores/path'
 </script>
 
 <li>
   <a
-    class="flex items-center p-4 cursor-pointer border-b border-gray-350
-    hover:bg-gray-200"
+    on:click={list.hide}
+    class="flex items-center p-3 sm:p-4 cursor-pointer border-b border-gray-200
+    hover:bg-gray-200 transition-colors duration-150"
     href={`/${$path.user}/${$path.asset}/2`}>
     <figure
       class="flex flex-shrink-0 items-center justify-center rounded-lg w-8 h-8
-      mr-3 bg-gray-400 text-gray-600">
+      mr-3 bg-gray-300 text-gray-600">
       <svg
         fill="none"
         stroke="currentColor"

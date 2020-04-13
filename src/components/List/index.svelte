@@ -1,16 +1,22 @@
 <script>
+  import { list } from 'stores/ui'
   import Search from './Search.svelte'
   import Item from './Item.svelte'
-  export let segment
 </script>
 
+<style>
+  aside {
+    --transform-scale-x: 1.0125;
+    --transform-scale-y: 1.0125;
+  }
+</style>
+
 <aside
-  class:transform-none={typeof segment === 'undefined'}
-  class="transform -translate-x-full lg:transform-none flex-shrink-0 absolute
-  lg:relative top-0 bottom-0 bg-gray-300 text-gray-700 w-full
-  sm:w-secondary-sidebar overflow-x-hidden border-r-0 sm:border-r lg:border-r-0
-  border-transparent sm:border-gray-400 lg:border-transparent border-t-0
-  lg:border-t xl:border-t-0 z-10 pt-0 lg:pt-2 xl:pt-0">
+  class={`transform pointer-events-none sm:pointer-events-auto sm:scale-100
+  opacity-0 sm:opacity-100 sm:-translate-x-full lg:transform-none flex-shrink-0
+  absolute lg:relative top-0 bottom-0 bg-gray-150 text-gray-700 w-full
+  sm:w-secondary-sidebar overflow-x-hidden transition-transform duration-200
+  z-20 ${$list && 'transform-none opacity-100 pointer-events-auto'}`}>
   <Search />
   <ul>
     <Item />
@@ -19,3 +25,7 @@
     <Item />
   </ul>
 </aside>
+
+<div
+  on:click={list.hide}
+  class={`bg-gray-250 bg-blurred opacity-0 block lg:hidden absolute top-0 bottom-0 right-0 left-0 pointer-events-none transition-opacity duration-200 z-10 ${$list ? 'sm:opacity-90 sm:pointer-events-auto' : ''}`} />

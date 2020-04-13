@@ -1,33 +1,33 @@
 <script>
   import path from 'stores/path'
+  import getAssetMetadata from 'utils/getAssetMetadata'
+  $: color = getAssetMetadata($path.asset).color
 </script>
 
-<header
-  class="flex items-center pl-0 lg:pl-4 pr-4 border-b border-gray-400 h-16">
-  <button
-    class="flex flex-col items-center justify-center text-gray-600
-    hover:text-gray-700 px-3 lg:hidden">
-    <svg
-      fill="none"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      viewBox="0 0 24 24"
-      class="w-6 h-6">
-      <path d="M4 6h16M4 12h16M4 18h7" />
-    </svg>
-  </button>
+<style>
+  input[type='search']::-webkit-search-cancel-button {
+    @apply .h-5 .w-5 .opacity-75 .cursor-pointer;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239d9c9b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z' /%3E%3Cline x1='18' y1='9' x2='12' y2='15' /%3E%3Cline x1='12' y1='9' x2='18' y2='15' /%3E%3C/svg%3E");
+    background-size: contain;
+
+    &:hover {
+      @apply .opacity-100;
+    }
+  }
+</style>
+
+<header class="flex items-center px-3 sm:px-4 border-b border-gray-250 h-16">
   <input
-    class="flex-grow rounded-md px-2 py-1 bg-gray-100 border border-gray-400
-    focus:bg-white focus:border-blue-400 focus:outline-none min-w-0"
+    class="flex-grow rounded bg-transparent focus:outline-none min-w-0
+    placeholder-gray-400 leading-relaxed h-full mr-2"
     type="search"
     placeholder="Type to search.." />
   <a
     href={`/${$path.user}/${$path.asset}/new`}
-    class="flex flex-shrink-0 items-center justify-center rounded-full
-    bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none
-    text-white w-8 h-8 ml-2">
+    class={`flex flex-shrink-0 items-center justify-center rounded-full
+    bg-${color}-400 hover:bg-${color}-450 focus:bg-${color}-450 focus:outline-none
+    text-${color}-800 w-10 h-10 ml-2 transition-color`}>
     <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
       <path
         fill-rule="evenodd"
