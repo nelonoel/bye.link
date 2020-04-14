@@ -1,7 +1,8 @@
 import * as sapper from '@sapper/app'
 import 'focus-visible'
-window.$ = window.blockstack
+import user from 'stores/user'
+user.initialize()
 
 sapper.start({
-	target: document.body,
+  target: document.body,
 })

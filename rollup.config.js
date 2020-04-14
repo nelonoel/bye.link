@@ -23,7 +23,7 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
 const aliases = {
   components: path.resolve(__dirname, './src/components'),
-  utils: path.resolve(__dirname, './src/utils'),
+  meta: path.resolve(__dirname, './src/meta'),
   stores: path.resolve(__dirname, './src/stores'),
   styles: path.resolve(__dirname, './src/styles'),
   vendor: path.resolve(__dirname, './static/vendor'),

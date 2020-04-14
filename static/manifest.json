@@ -1,8 +1,8 @@
 {
-	"background_color": "#ffffff",
-	"theme_color": "#333333",
-	"name": "TODO",
-	"short_name": "TODO",
+	"background_color": "#383736",
+	"theme_color": "#c06325",
+	"name": "bye.link",
+	"short_name": "bye.link",
 	"display": "minimal-ui",
 	"start_url": "/",
 	"icons": [

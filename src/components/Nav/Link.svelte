@@ -1,13 +1,3 @@
-<script>
-  export let href = null
-  export let count = 0
-  export let isActive = false
-  export let color = null
-  export let icon = null
-  export let containerClass = ''
-  export let onClick = () => {}
-</script>
-
 <style>
   a {
     &[data-color] {
@@ -57,7 +47,7 @@
       }
     }
     &.active {
-      @apply .shadow-none;
+      @apply .shadow-none .cursor-default;
       background-color: currentColor;
       transition: background-color 100ms 100ms;
       &:not([data-color]) {
@@ -77,18 +67,30 @@
   }
 </style>
 
-<li class={containerClass}>
+<script>
+  export let href = null
+  export let count = 0
+  export let isActive = false
+  export let color = null
+  export let icon = null
+  export let containerClass = ''
+  export let onClick = () => {}
+</script>
+
+<li class="{containerClass}">
   <a
-    data-color={color}
+    data-color="{color}"
     rel="prefetch"
-    class={`text-${color}-600 flex items-center justify-center sm:justify-between relative w-full px-2 lg:px-3 xl:px-4
-    py-3 lg:py-3 hover:bg-gray-950 cursor-pointer overflow-hidden ${$$props.class || ''}`}
-    class:active={isActive}
-    on:click={onClick}
-    {href}>
+    class="{`text-${color}-600 flex items-center justify-center sm:justify-between relative w-full lg:px-3 xl:px-4
+    py-3 lg:py-3 hover:bg-gray-950 focus:bg-gray-950 focus:outline-none cursor-pointer overflow-hidden ${$$props.class || 'px-2'}`}"
+    class:active="{isActive}"
+    on:click="{onClick}"
+    {href}
+  >
     <div
       class="flex flex-col lg:flex-row items-center lg:items-start text-white
-      z-10">
+      z-10"
+    >
       <figure>
         <svg
           fill="none"
@@ -97,18 +99,20 @@
           stroke-linejoin="round"
           stroke-width="2"
           viewBox="0 0 24 24"
-          class="w-6 h-6">
+          class="w-6 h-6"
+        >
           {@html icon}
         </svg>
       </figure>
-      <slot name="label" />
+      <slot />
     </div>
     {#if count > 0}
       <div
         data-count
-        class={`bg-gray-800 transition-colors duration-300 ease-in-out hidden lg:inline-flex top-0 right-0
+        class="{`bg-gray-800 transition-colors duration-300 ease-in-out hidden lg:inline-flex top-0 right-0
         items-center justify-center px-2 text-${color}-700 rounded-full
-        text-xs tracking-wide leading-5 z-10`}>
+        text-xs tracking-wide leading-5 z-10`}"
+      >
         <span class="text-white">{count}</span>
       </div>
     {/if}

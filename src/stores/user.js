@@ -1,18 +1,16 @@
 import { writable } from 'svelte/store'
 
-const defaults = {}
-
 export default (() => {
-  const { subscribe, set, update } = writable(defaults)
+  const { subscribe, set, update } = writable(null)
 
   return {
     subscribe,
     initialize: () => {
-      return set(new $.UserSession())
+      return set(new blockstack.UserSession())
     },
     reset: () => {
       // Clear stuff
-      return set(new $.UserSession())
+      return set(new blockstack.UserSession())
     },
   }
 })()

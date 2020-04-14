@@ -1,5 +1,5 @@
 <script>
-  import path from 'stores/path'
+  import { path } from 'stores/ui'
   import Nav from 'components/Nav/index.svelte'
   import MobileNav from 'components/Nav/Mobile.svelte'
 

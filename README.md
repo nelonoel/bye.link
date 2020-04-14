@@ -1,3 +1,5 @@
 # 👋 bye.link
 
-A decentralized space for sharing **secrets** when you become unreachable.
+#### Entrust your digital assets.
+
+Send your trusted contacts a link that can be accessed only when you become unreachable.

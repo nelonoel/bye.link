@@ -1,6 +1,6 @@
 <script>
-  import path from 'stores/path'
-  import getAssetMetadata from 'utils/getAssetMetadata'
+  import { path } from 'stores/ui'
+  import _asset from 'meta/asset'
 
   import Container from 'components/Main/Container.svelte'
   import Content from 'components/Main/Content.svelte'
@@ -10,7 +10,7 @@
   $: if (typeof segment !== 'undefined') {
     path.setSlug('item', segment)
   }
-  $: meta = getAssetMetadata($path.asset)
+  $: meta = _asset($path.asset)
 </script>
 
 <svelte:head>
@@ -19,8 +19,8 @@
 
 <List />
 
-<Container class="overflow-hidden">
-  <main class="flex flex-grow overflow-x-hidden overflow-y-auto">
+<Container class="relative overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 bottom-0 flex flex-col flex-grow overflow-x-hidden overflow-y-auto">
     <slot />
-  </main>
+  </div>
 </Container>

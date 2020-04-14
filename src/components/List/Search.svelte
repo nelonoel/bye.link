@@ -1,9 +1,3 @@
-<script>
-  import path from 'stores/path'
-  import getAssetMetadata from 'utils/getAssetMetadata'
-  $: color = getAssetMetadata($path.asset).color
-</script>
-
 <style>
   input[type='search']::-webkit-search-cancel-button {
     @apply .h-5 .w-5 .opacity-75 .cursor-pointer;
@@ -17,23 +11,53 @@
   }
 </style>
 
-<header class="flex items-center px-3 sm:px-4 border-b border-gray-250 h-16">
+<script>
+  import { onDestroy } from 'svelte'
+  import { list, path, filter } from 'stores/ui'
+  import _asset from 'meta/asset'
+
+  let query = ''
+  let inputField
+
+  $: filter.set(query.trim().toLowerCase())
+  $: color = _asset($path.asset).color
+
+  const unwatchPath = path.subscribe(({ item }) => {
+    if (!item && inputField) {
+      inputField.value = ''
+      filter.clear()
+    }
+  })
+
+  onDestroy(unwatchPath)
+</script>
+
+<header
+  class="sticky inset-0 bottom-auto flex items-center px-3 sm:px-4 bg-gray-150
+  border-b border-gray-200 h-16 z-10"
+>
   <input
     class="flex-grow rounded bg-transparent focus:outline-none min-w-0
     placeholder-gray-400 leading-relaxed h-full mr-2"
+    bind:value="{query}"
+    bind:this="{inputField}"
     type="search"
-    placeholder="Type to search.." />
+    placeholder="Type to search.."
+  />
   <a
-    href={`/${$path.user}/${$path.asset}/new`}
-    class={`flex flex-shrink-0 items-center justify-center rounded-full
+    on:click="{list.hide}"
+    href="{`/${$path.user}/${$path.asset}/new`}"
+    class="{`flex flex-shrink-0 items-center justify-center rounded-full
     bg-${color}-400 hover:bg-${color}-450 focus:bg-${color}-450 focus:outline-none
-    text-${color}-800 w-10 h-10 ml-2 transition-color`}>
+    text-${color}-800 w-10 h-10 ml-2 transition-color`}"
+  >
     <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
       <path
         fill-rule="evenodd"
         d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0
         110-2h5V4a1 1 0 011-1z"
-        clip-rule="evenodd" />
+        clip-rule="evenodd"
+      ></path>
     </svg>
   </a>
 </header>

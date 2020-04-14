@@ -7,7 +7,9 @@
 
 <section class="flex justify-between sm:hidden bg-gray-850">
   <div>
-    <ListToggle class="text-white px-2 py-3" />
+    {#if typeof asset !== 'undefined'}
+      <ListToggle class="text-white p-3" />
+    {/if}
   </div>
-  <Meta {user} {asset} minimal={true} />
+  <Meta {user} {asset} minimal="{true}" />
 </section>
