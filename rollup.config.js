@@ -7,8 +7,8 @@ import copy from 'rollup-plugin-copy'
 import postcss from 'rollup-plugin-postcss'
 import path from 'path'
 import preprocessor from 'svelte-preprocess'
-import purgecss from '@fullhuman/postcss-purgecss'
-import purge from 'purgecss-from-svelte'
+// import purgecss from '@fullhuman/postcss-purgecss'
+// import purge from 'purgecss-from-svelte'
 import json from '@rollup/plugin-json'
 import replace from '@rollup/plugin-replace'
 import resolve from '@rollup/plugin-node-resolve'
@@ -36,16 +36,16 @@ const getPostCSSPlugins = (isProduction = false) =>
     require('tailwindcss')('./tailwind.config.js'),
     require('postcss-nested'),
     require('postcss-preset-env'),
-    isProduction &&
-      purgecss({
-        content: ['./**/*.svelte', './src/template.html'],
-        extractors: [
-          {
-            extractor: purge,
-            extensions: ['svelte', 'html'],
-          },
-        ],
-      }),
+    // isProduction &&
+    //   purgecss({
+    //     content: ['./**/*.svelte', './src/template.html'],
+    //     extractors: [
+    //       {
+    //         extractor: purge,
+    //         extensions: ['svelte', 'html'],
+    //       },
+    //     ],
+    //   }),
     isProduction && require('cssnano'),
   ].filter(Boolean)
 
