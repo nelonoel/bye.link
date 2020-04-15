@@ -1,5 +1,6 @@
 <script>
-  import { path } from 'stores/ui'
+  import { onMount } from 'svelte'
+  import { list, path } from 'stores/ui'
   import _asset from 'meta/asset'
 
   import Container from 'components/Main/Container.svelte'
@@ -7,6 +8,13 @@
   import List from 'components/List/index.svelte'
 
   export let segment
+
+  onMount(() => {
+    if (typeof segment === 'undefined') {
+      list.show()
+    }
+  })
+
   $: if (typeof segment !== 'undefined') {
     path.setSlug('item', segment)
   }

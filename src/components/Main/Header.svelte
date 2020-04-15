@@ -6,13 +6,19 @@
 
 <script>
   // import { goto } from '@sapper/app';
-  import { path } from 'stores/ui'
+  import { list, path } from 'stores/ui'
   import _asset from 'meta/asset'
   import ListToggle from 'components/List/Toggle.svelte'
 
   const MAX_PREVIEW = 2
   const isEditable = true
   let contacts = []
+
+  const handleCancel = () => {
+    if ($path.item === 'new') {
+      list.show()
+    }
+  }
 
   const handleSave = () => {
     if ($path.item === 'new') {
@@ -88,6 +94,7 @@
     {#if isEditing}
       <a
         href="{`/${$path.user}/${$path.asset}${$path.item === 'new' ? '' : `/${$path.item}`}`}"
+        on:click="{handleCancel}"
         class="flex items-center justify-center focus:outline-none text-gray-400
         hover:text-gray-600 focus:text-gray-600 py-2 mx-2 transition-color"
       >
