@@ -1,13 +1,3 @@
-<style>
-  aside {
-    --transform-scale-x: 1.0125;
-    --transform-scale-y: 1.0125;
-  }
-  [data-container] {
-    top: 4rem;
-  }
-</style>
-
 <script>
   import VirtualList from '@sveltejs/svelte-virtual-list'
   import { list, path, filter } from 'stores/ui'
@@ -32,12 +22,22 @@
     )
 </script>
 
+<style>
+  aside {
+    --transform-scale-x: 1.0125;
+    --transform-scale-y: 1.0125;
+  }
+  [data-container] {
+    top: 4rem;
+  }
+</style>
+
 <aside
   class="{`transform pointer-events-none sm:pointer-events-auto sm:scale-100
 	opacity-0 sm:opacity-100 sm:-translate-x-full lg:transform-none flex-shrink-0
 	absolute lg:relative top-0 bottom-0 bg-gray-150 text-gray-700 w-full
 	sm:w-secondary-sidebar overflow-x-hidden transition-transform duration-200
-	z-20 ${$list && 'transform-none opacity-100 pointer-events-auto'}`}"
+	z-40 ${$list && 'transform-none opacity-100 pointer-events-auto'}`}"
 >
   <Search />
   <div
@@ -64,5 +64,5 @@
 
 <div
   on:click="{list.hide}"
-  class="{`bg-gray-250 bg-blurred opacity-0 block lg:hidden absolute top-0 bottom-0 right-0 left-0 pointer-events-none transition-opacity duration-200 z-10 ${$list ? 'sm:opacity-90 sm:pointer-events-auto' : ''}`}"
+  class="{`bg-gray-250 bg-blurred opacity-0 block lg:hidden absolute top-0 bottom-0 right-0 left-0 pointer-events-none transition-opacity duration-200 z-30 ${$list ? 'sm:opacity-90 sm:pointer-events-auto' : ''}`}"
 ></div>

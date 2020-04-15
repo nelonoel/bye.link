@@ -8,9 +8,10 @@
   let isCopied = false
   let timeout
   let clipboard
+  let copyButton
 
   onMount(() => {
-    clipboard = new ClipboardJS('[data-clipboard]', {
+    clipboard = new ClipboardJS(copyButton, {
       text: () => value,
     })
     clipboard.on('success', () => {
@@ -32,7 +33,7 @@
     <slot />
   </div>
   <button
-    data-clipboard
+    bind:this="{copyButton}"
     class="flex items-center bg-gray-150 hover:bg-{color}-200 px-3 py-1
     rounded-full text-gray-650 hover:text-{color}-850 text-sm transition-color"
     class:pointer-events-none="{isCopied}"

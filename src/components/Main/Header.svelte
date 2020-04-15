@@ -33,7 +33,7 @@
 
 <header
   class="sticky top-0 bg-gray-100 opacity-90 bg-blurred flex justify-between
-  h-16 w-full"
+  h-16 w-full z-20"
 >
   <div class="flex">
     <ListToggle

@@ -19,13 +19,19 @@
 
 h1,
 h2,
-h3 {
+h3,
+.cm-header-1,
+.cm-header-2,
+.cm-header-3 {
   @apply .font-extrabold;
 }
 
 h4,
 h5,
 h6,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6,
 strong {
   @apply .font-semibold;
 }

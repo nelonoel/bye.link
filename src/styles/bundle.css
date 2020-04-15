@@ -4,3 +4,5 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import './_utils';
+
+@import './_mde';

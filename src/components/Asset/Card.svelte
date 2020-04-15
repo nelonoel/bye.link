@@ -18,14 +18,6 @@
 </script>
 
 <Text {isEditing} {color} label="Title" value="{asset.title}" />
-<Card {isEditing} {color} label="Card No." value="{asset.card_number}" />
-<Text {isEditing} {color} label="Card Type" value="{asset.card_type}" />
-<Text {isEditing} {color} label="Expiry" value="{asset.expiry}" />
-<Text
-  {isEditing}
-  {color}
-  label="Verification No."
-  value="{asset.verification_number}"
-/>
 <Text {isEditing} {color} label="Account Holder" value="{asset.card_holder}" />
+<Card {isEditing} {color} card="{{ ...asset }}" />
 <Note {isEditing} {color} label="Note" value="{asset.note}" />

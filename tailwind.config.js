@@ -172,7 +172,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        body: ['Work Sans', ...defaultTheme.fontFamily.sans],
+        body: ['"Work Sans"', ...defaultTheme.fontFamily.sans],
+        serif: ['"Libre Baskerville"', ...defaultTheme.fontFamily.serif],
       },
       fontSize: {
         xxs: '3vw',
@@ -188,6 +189,7 @@ module.exports = {
       },
       spacing: {
         128: '40rem',
+        160: '50rem',
       },
       width: {
         'primary-sidebar': '240px',

@@ -8,6 +8,7 @@
   import Card from 'components/Asset/Card.svelte'
   import Note from 'components/Asset/Note.svelte'
   import Diary from 'components/Asset/Diary.svelte'
+  import Dates from 'components/Field/Dates.svelte'
 
   const views = {
     contacts: Contact,
@@ -20,6 +21,10 @@
   $: asset = $assets.find(a => a._id === $path.item)
 </script>
 
-<main class="mb-16 mt-4">
+<main class="flex-grow mb-16 mt-4">
   <svelte:component this="{views[$path.asset]}" {asset} {action} />
 </main>
+
+{#if action === 'view'}
+  <Dates lastModified="{asset.last_modified}" createdAt="{asset.created_at}" />
+{/if}
