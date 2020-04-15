@@ -2,15 +2,14 @@
   import Text from 'components/Field/Text.svelte'
 
   export let asset = {
-    title: '',
     note: '',
     location: '',
     mood: '',
   }
   export let action
+  let isEditing = action === 'edit' || action === 'add'
 </script>
 
-<Text label="Title" value="{asset.title}" />
-<Text label="Note" value="{asset.note}" />
-<Text label="Location" value="{asset.location}" />
-<Text label="Mood" value="{asset.mood}" />
+<Text {isEditing} label="Note" value="{asset.note}" />
+<Text {isEditing} label="Location" value="{asset.location || ''}" />
+<Text {isEditing} label="Mood" value="{asset.mood || ''}" />

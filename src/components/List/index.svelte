@@ -27,6 +27,9 @@
   $: collection = $assets
     .filter(a => a.category === $path.asset)
     .filter(applyFilter)
+    .sort((a, b) =>
+      new Date(a[meta.sortBy]) <= new Date(b[meta.sortBy]) ? 1 : -1
+    )
 </script>
 
 <aside
@@ -50,7 +53,7 @@
             multiline="{item.category === 'notes' || item.category === 'diary'}"
             id="{item._id}"
             icon="{meta.icon}"
-            title="{item[meta.titleField] || ''}"
+            title="{meta.titleFormat ? meta.titleFormat(item[meta.titleField]) : item[meta.titleField] || ''}"
             description="{item[meta.descriptionField] || ''}"
           />
         </VirtualList>

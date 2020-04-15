@@ -20,6 +20,6 @@
   $: asset = $assets.find(a => a._id === $path.item)
 </script>
 
-<main class="w-128 max-w-full mx-auto mb-16 mt-4 px-4">
+<main class="mb-16 mt-4">
   <svelte:component this="{views[$path.asset]}" {asset} {action} />
 </main>

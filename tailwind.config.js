@@ -187,7 +187,7 @@ module.exports = {
         xl: '1280px',
       },
       spacing: {
-        128: '32rem',
+        128: '40rem',
       },
       width: {
         'primary-sidebar': '240px',

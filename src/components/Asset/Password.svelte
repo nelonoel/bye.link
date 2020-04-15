@@ -9,10 +9,11 @@
     note: '',
   }
   export let action
+  let isEditing = action === 'edit' || action === 'add'
 </script>
 
-<Text label="Title" value="{asset.title}" />
-<Text label="Username" value="{asset.username}" />
-<Text label="Password" value="{asset.password}" />
-<Text type="url" label="Website" value="{asset.website}" />
-<Text label="Note" value="{asset.note}" />
+<Text {isEditing} label="Title" value="{asset.title}" />
+<Text {isEditing} label="Username" value="{asset.username}" />
+<Text {isEditing} label="Password" value="{asset.password}" />
+<Text {isEditing} type="url" label="Website" value="{asset.website}" />
+<Text {isEditing} label="Note" value="{asset.note}" />

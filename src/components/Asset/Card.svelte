@@ -11,12 +11,17 @@
     note: '',
   }
   export let action
+  let isEditing = action === 'edit' || action === 'add'
 </script>
 
-<Text label="Title" value="{asset.title}" />
-<Text label="Card No." value="{asset.card_number}" />
-<Text label="Card Type" value="{asset.card_type}" />
-<Text label="Expiry" value="{asset.expiry}" />
-<Text label="Verification No." value="{asset.verification_number}" />
-<Text label="Account Holder" value="{asset.card_holder}" />
-<Text label="Note" value="{asset.note}" />
+<Text {isEditing} label="Title" value="{asset.title}" />
+<Text {isEditing} label="Card No." value="{asset.card_number}" />
+<Text {isEditing} label="Card Type" value="{asset.card_type}" />
+<Text {isEditing} label="Expiry" value="{asset.expiry}" />
+<Text
+  {isEditing}
+  label="Verification No."
+  value="{asset.verification_number}"
+/>
+<Text {isEditing} label="Account Holder" value="{asset.card_holder}" />
+<Text {isEditing} label="Note" value="{asset.note}" />

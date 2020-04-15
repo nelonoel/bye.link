@@ -6,7 +6,8 @@
     note: '',
   }
   export let action
+  let isEditing = action === 'edit' || action === 'add'
 </script>
 
-<Text label="Title" value="{asset.title}" />
-<Text label="Note" value="{asset.note}" />
+<Text {isEditing} label="Title" value="{asset.title}" />
+<Text {isEditing} label="Note" value="{asset.note}" />
