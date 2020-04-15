@@ -1,5 +1,7 @@
 <script>
   import Text from 'components/Field/Text.svelte'
+  import URL from 'components/Field/URL.svelte'
+  import Note from 'components/Field/Note.svelte'
 
   export let asset = {
     title: '',
@@ -15,5 +17,5 @@
 <Text {isEditing} label="Title" value="{asset.title}" />
 <Text {isEditing} label="Username" value="{asset.username}" />
 <Text {isEditing} label="Password" value="{asset.password}" />
-<Text {isEditing} type="url" label="Website" value="{asset.website}" />
-<Text {isEditing} label="Note" value="{asset.note}" />
+<URL {isEditing} label="Website" value="{asset.website}" />
+<Note {isEditing} label="Note" value="{asset.note}" />
