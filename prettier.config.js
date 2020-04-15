@@ -4,7 +4,7 @@ module.exports = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
-  svelteSortOrder: 'styles-scripts-markup',
+  svelteSortOrder: 'scripts-styles-markup',
   svelteStrictMode: true,
   svelteBracketNewLine: true,
   svelteAllowShorthand: true,

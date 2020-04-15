@@ -1,3 +1,13 @@
+<script>
+  import autosize from 'autosize'
+  import { onMount } from 'svelte'
+  export let label
+  export let value
+  export let isEditing
+  let textarea
+  onMount(() => autosize(textarea))
+</script>
+
 <style>
   p {
     white-space: pre-wrap;
@@ -8,16 +18,6 @@
     min-height: theme('spacing.40');
   }
 </style>
-
-<script>
-  import autosize from 'autosize'
-  import { onMount } from 'svelte'
-  export let label
-  export let value
-  export let isEditing
-  let textarea
-  onMount(() => autosize(textarea))
-</script>
 
 {#if value || isEditing}
   <div class="w-128 max-w-full mx-auto px-4 py-3">

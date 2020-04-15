@@ -1,5 +1,6 @@
 <script>
   import Text from 'components/Field/Text.svelte'
+  import Note from 'components/Field/Note.svelte'
 
   export let asset = {
     title: '',
@@ -10,4 +11,4 @@
 </script>
 
 <Text {isEditing} label="Title" value="{asset.title}" />
-<Text {isEditing} label="Note" value="{asset.note}" />
+<Note {isEditing} label="Note" value="{asset.note}" />

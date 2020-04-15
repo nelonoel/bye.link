@@ -1,16 +1,3 @@
-<style>
-  input[type='search']::-webkit-search-cancel-button {
-    @apply .h-5 .w-5 .opacity-75 .cursor-pointer;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239d9c9b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z' /%3E%3Cline x1='18' y1='9' x2='12' y2='15' /%3E%3Cline x1='12' y1='9' x2='18' y2='15' /%3E%3C/svg%3E");
-    background-size: contain;
-
-    &:hover {
-      @apply .opacity-100;
-    }
-  }
-</style>
-
 <script>
   import { onDestroy } from 'svelte'
   import { list, path, filter } from 'stores/ui'
@@ -32,13 +19,26 @@
   onDestroy(unwatchPath)
 </script>
 
+<style>
+  input[type='search']::-webkit-search-cancel-button {
+    @apply .h-5 .w-5 .opacity-75 .cursor-pointer;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239d9c9b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z' /%3E%3Cline x1='18' y1='9' x2='12' y2='15' /%3E%3Cline x1='12' y1='9' x2='18' y2='15' /%3E%3C/svg%3E");
+    background-size: contain;
+
+    &:hover {
+      @apply .opacity-100;
+    }
+  }
+</style>
+
 <header
   class="sticky inset-0 bottom-auto flex items-center px-3 sm:px-4 bg-gray-150
   border-b border-gray-200 h-16 z-10"
 >
   <input
     class="flex-grow rounded bg-transparent focus:outline-none min-w-0
-    placeholder-gray-400 leading-relaxed h-full mr-2"
+    placeholder-gray-500 leading-relaxed h-full mr-2"
     bind:value="{query}"
     bind:this="{inputField}"
     type="search"
