@@ -1,4 +1,5 @@
 <script>
+  export let color = 'gray'
   export let type = 'text'
   export let label
   export let value
@@ -7,17 +8,20 @@
 
 {#if value || isEditing}
   <div class="w-128 max-w-full mx-auto px-4 py-3">
-    <div class="text-caps text-gray-400 mb-1">{label}</div>
     {#if isEditing}
+      <label class="block text-caps text-gray-400 mb-1">{label}</label>
       <input
-        class="bg-gray-50 border-2 border-gray-150 focus:border-gray-200
-        focus:bg-white focus:outline-none text-gray-800 rounded w-full text-lg
-        px-3 py-2"
+        class="{`bg-transparent border-b-2 border-gray-150 focus:border-${color}-500 text-gray-750 w-full ${label === 'Title' ? '-mt-1 font-semibold text-3xl' : 'text-xl'}`}"
         {type}
         {value}
       />
     {:else}
-      <div class="text-xl text-gray-750">{value}</div>
+      <h6 class="text-caps text-gray-400 mb-1">{label}</h6>
+      <div
+        class="{`inline-block w-full border-b-2 border-transparent text-gray-750 ${label === 'Title' ? '-mt-1 font-semibold text-3xl' : 'text-xl'}`}"
+      >
+        {value}
+      </div>
     {/if}
   </div>
 {/if}

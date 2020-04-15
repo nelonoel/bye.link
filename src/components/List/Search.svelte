@@ -37,8 +37,8 @@
   border-b border-gray-200 h-16 z-10"
 >
   <input
-    class="flex-grow rounded bg-transparent focus:outline-none min-w-0
-    placeholder-gray-500 leading-relaxed h-full mr-2"
+    class="flex-grow rounded bg-transparent min-w-0 placeholder-gray-500
+    leading-relaxed h-full mr-2"
     bind:value="{query}"
     bind:this="{inputField}"
     type="search"
@@ -48,7 +48,7 @@
     on:click="{list.hide}"
     href="{`/${$path.user}/${$path.asset}/new`}"
     class="{`flex flex-shrink-0 items-center justify-center rounded-full
-    bg-${color}-400 hover:bg-${color}-450 focus:bg-${color}-450 focus:outline-none
+    bg-${color}-400 hover:bg-${color}-450 focus:bg-${color}-450
     text-${color}-800 w-10 h-10 ml-2 transition-color`}"
   >
     <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">

@@ -4,7 +4,7 @@
 
 <button
   on:click="{list.toggle}"
-  class="{`items-center justify-center focus:outline-none sm:pointer-events-auto ${$path.item ? 'pointer-events-auto' : 'pointer-events-none text-gray-700'} ${$$props.class || ''}`}"
+  class="{`items-center justify-center sm:pointer-events-auto ${$path.item ? 'pointer-events-auto' : 'pointer-events-none text-gray-700'} ${$$props.class || ''}`}"
 >
   <svg
     fill="none"

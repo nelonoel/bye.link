@@ -9,6 +9,14 @@
   -webkit-tap-highlight: transparent;
 }
 
+*:focus {
+  outline: none !important;
+}
+
+*.focus-visible:not(input, textarea) {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
 h1,
 h2,
 h3 {

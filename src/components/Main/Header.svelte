@@ -1,9 +1,3 @@
-<style>
-  [data-primary] {
-    min-width: 5em;
-  }
-</style>
-
 <script>
   // import { goto } from '@sapper/app';
   import { list, path } from 'stores/ui'
@@ -17,6 +11,7 @@
   const handleCancel = () => {
     if ($path.item === 'new') {
       list.show()
+      path.setSlug('item', null)
     }
   }
 
@@ -30,6 +25,12 @@
   $: color = _asset($path.asset).color
 </script>
 
+<style>
+  [data-primary] {
+    min-width: 5em;
+  }
+</style>
+
 <header
   class="sticky top-0 bg-gray-100 opacity-90 bg-blurred flex justify-between
   h-16 w-full"
@@ -37,7 +38,7 @@
   <div class="flex">
     <ListToggle
       class="hidden sm:flex lg:hidden text-gray-600 hover:text-gray-700 pl-3
-      pr-2 focus:outline-none py-4"
+      pr-2 py-4"
     />
     {#if isEditable}
       <a
@@ -95,7 +96,7 @@
       <a
         href="{`/${$path.user}/${$path.asset}${$path.item === 'new' ? '' : `/${$path.item}`}`}"
         on:click="{handleCancel}"
-        class="flex items-center justify-center focus:outline-none text-gray-400
+        class="flex items-center justify-center text-gray-400
         hover:text-gray-600 focus:text-gray-600 py-2 mx-2 transition-color"
       >
         Cancel
@@ -103,7 +104,7 @@
       <button
         on:click="{handleSave}"
         data-primary
-        class="{`flex whitespace-no-wrap items-center justify-center rounded-full bg-${color}-500 hover:bg-${color}-550 focus:bg-${color}-550 focus:outline-none text-white py-2 px-5 ml-2 transition-color`}"
+        class="{`flex whitespace-no-wrap items-center justify-center rounded-full bg-${color}-500 hover:bg-${color}-550 focus:bg-${color}-550 text-white py-2 px-5 ml-2 transition-color`}"
       >
         Save
       </button>
@@ -111,7 +112,7 @@
       <a
         href="{`/${$path.user}/${$path.asset}/${$path.item}/edit`}"
         data-primary
-        class="{`flex whitespace-no-wrap items-center justify-center rounded-full bg-${color}-500 hover:bg-${color}-550 focus:bg-${color}-550 focus:outline-none text-white py-2 px-5 ml-2 transition-color`}"
+        class="{`flex whitespace-no-wrap items-center justify-center rounded-full bg-${color}-500 hover:bg-${color}-550 focus:bg-${color}-550 text-white py-2 px-5 ml-2 transition-color`}"
       >
         Edit
       </a>

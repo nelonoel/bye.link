@@ -2,7 +2,7 @@
   import { onMount, onDestroy } from 'svelte'
   import ClipboardJS from 'clipboard'
 
-  export let label
+  export let color
   export let value
 
   let isCopied = false
@@ -27,14 +27,14 @@
   })
 </script>
 
-<div class="flex items-center justify-start">
-  <div class="text-2xl text-gray-750 mr-5">
+<div class="flex items-center justify-start -mt-1">
+  <div class="flex items-center text-2xl text-gray-750 mr-3">
     <slot />
   </div>
   <button
     data-clipboard
-    class="flex items-center bg-gray-150 hover:bg-orange-200 px-3 py-1
-    rounded-full text-gray-650 hover:text-orange-850 text-sm transition-color"
+    class="flex items-center bg-gray-150 hover:bg-{color}-200 px-3 py-1
+    rounded-full text-gray-650 hover:text-{color}-850 text-sm transition-color"
     class:pointer-events-none="{isCopied}"
   >
     <svg

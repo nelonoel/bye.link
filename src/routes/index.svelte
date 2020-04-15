@@ -1,3 +1,7 @@
+<script>
+  import user from 'stores/user'
+</script>
+
 <style>
   .highlight {
     box-shadow: inset 0 -0.5em 0 theme('colors.yellow.300');
@@ -14,10 +18,6 @@
     text-fill-color: transparent;
   }
 </style>
-
-<script>
-  import user from 'stores/user'
-</script>
 
 <svelte:head>
   <title>Welcome to bye.link</title>
@@ -47,7 +47,7 @@
     <!-- {#if $user && $user.isUserSignedIn()} -->
     <a class="text-blue-600 underline" href="/@walter_white">view app demo</a>
     <!-- {:else}
-    <button class="text-blue-600 underline focus:outline-none" on:click={() => $user && $user.redirectToSignIn()}>login</button>
+    <button class="text-blue-600 underline" on:click={() => $user && $user.redirectToSignIn()}>login</button>
   	{/if} -->
     .
   </p>
@@ -62,8 +62,7 @@
       <span class="text-caps text-gray-500">Name</span>
       <input
         class="text-sm flex-grow rounded px-2 py-1 bg-gray-100 border
-        border-gray-300 focus:bg-gray-50 focus:border-blue-300
-        focus:outline-none min-w-0"
+        border-gray-300 focus:bg-gray-50 focus:border-blue-300 min-w-0"
         type="text"
         name="name"
       />
@@ -72,17 +71,15 @@
       <span class="text-caps text-gray-500">Email</span>
       <input
         class="text-sm flex-grow rounded px-2 py-1 bg-gray-100 border
-        border-gray-300 focus:bg-gray-50 focus:border-blue-300
-        focus:outline-none min-w-0"
+        border-gray-300 focus:bg-gray-50 focus:border-blue-300 min-w-0"
         type="email"
         name="email"
       />
     </label>
     <button
       class="flex items-center justify-center rounded-md bg-blue-500
-      hover:bg-blue-550 focus:bg-blue-550 focus:outline-none text-white text-sm
-      py-1 border border-transparent w-24 px-4 w-full h-full mx-2 mt-3 mb-2
-      sm:mb-3"
+      hover:bg-blue-550 focus:bg-blue-550 text-white text-sm py-1 border
+      border-transparent w-24 px-4 w-full h-full mx-2 mt-3 mb-2 sm:mb-3"
       type="submit"
     >
       Subscribe

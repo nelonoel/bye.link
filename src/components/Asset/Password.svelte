@@ -12,11 +12,12 @@
     note: '',
   }
   export let action
+  const color = 'orange'
   let isEditing = action === 'edit' || action === 'add'
 </script>
 
-<Text {isEditing} label="Title" value="{asset.title}" />
-<Text {isEditing} label="Username" value="{asset.username}" />
-<Password {isEditing} label="Password" value="{asset.password}" />
-<URL {isEditing} label="Website" value="{asset.website}" />
-<Note {isEditing} label="Note" value="{asset.note}" />
+<Text {isEditing} {color} label="Title" value="{asset.title}" />
+<Text {isEditing} {color} label="Username" value="{asset.username}" />
+<Password {isEditing} {color} label="Password" value="{asset.password}" />
+<URL {isEditing} {color} label="Website" value="{asset.website}" />
+<Note {isEditing} {color} label="Note" value="{asset.note}" />

@@ -1,3 +1,13 @@
+<script>
+  export let href = null
+  export let count = 0
+  export let isActive = false
+  export let color = null
+  export let icon = null
+  export let containerClass = ''
+  export let onClick = () => {}
+</script>
+
 <style>
   a {
     &[data-color] {
@@ -67,22 +77,12 @@
   }
 </style>
 
-<script>
-  export let href = null
-  export let count = 0
-  export let isActive = false
-  export let color = null
-  export let icon = null
-  export let containerClass = ''
-  export let onClick = () => {}
-</script>
-
 <li class="{containerClass}">
   <a
     data-color="{color}"
     rel="prefetch"
     class="{`text-${color}-600 flex items-center justify-center sm:justify-between relative w-full lg:px-3 xl:px-4
-    py-3 lg:py-3 hover:bg-gray-950 focus:bg-gray-950 focus:outline-none cursor-pointer overflow-hidden ${$$props.class || 'px-2'}`}"
+    py-3 lg:py-3 hover:bg-gray-950 focus:bg-gray-950 cursor-pointer overflow-hidden ${$$props.class || 'px-2'}`}"
     class:active="{isActive}"
     on:click="{onClick}"
     {href}
