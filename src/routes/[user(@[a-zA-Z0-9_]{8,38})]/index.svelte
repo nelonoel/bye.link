@@ -3,7 +3,6 @@
 	import Avatar from 'components/Field/Avatar.svelte'
 	import Text from 'components/Field/Text.svelte'
 	import Description from 'components/Field/Description.svelte'
-	import Note from 'components/Field/Note.svelte'
 
 	export let asset = {
 		picture: '',
@@ -15,46 +14,19 @@
 		note: '',
 		added_by_default: '',
 	}
-	const color = 'gray'
-	const isEditing = false
+	let color = 'gray'
+	let isEditing = true
 </script>
 
-<Container>
-	<Avatar {isEditing} {color} src="{asset.picture}" name="{asset.name}" />
-	<Text {isEditing} {color} label="Name" value="{asset.name}" />
-	<Text {isEditing} {color} type="email" label="E-mail" value="{asset.email}">
-		<Description
-			>We'll reach out to them when you become inactive for 40
-			days.</Description
-		>
-	</Text>
-	<Text {isEditing} {color} label="Mobile No." value="{asset.mobile}" />
-
-	<Text
-		{isEditing}
-		{color}
-		label="Security Question"
-		value="{asset.security_question}"
-	>
-		<Description
-			>Your trusted person needs to answer this to gain access to your
-			assets.</Description
-		>
-	</Text>
-
-	<Text
-		{isEditing}
-		{color}
-		label="Answer to Security Question"
-		value="{asset.answer}"
-		><Description
-			>Case-insensitive. Spaces and symbols are ignored.</Description
-		></Text
-	>
-
-	<Note {isEditing} {color} label="Welcome Note" value="{asset.note}">
-		<Description
-			>Only visible once they gain access to your assets.</Description
-		>
-	</Note>
+<Container class="w-full">
+	<main class="p-3 md:p-4 my-auto">
+		<Avatar {isEditing} {color} src="{asset.picture}" name="{asset.name}" />
+		<Text {isEditing} {color} label="Name" value="{asset.name}" />
+		<Text {isEditing} {color} type="email" label="E-mail" value="{asset.email}">
+			<Description
+				>We'll start reaching out to you when you become inactive for 30 days. If you don't respond within 10 days, we'll send the security questions you've setup for each of your trusted contacts.</Description
+			>
+		</Text>
+		<Text {isEditing} {color} label="Mobile No." value="{asset.mobile}" />
+	</main>
 </Container>

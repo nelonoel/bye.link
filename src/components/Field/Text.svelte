@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte'
+  import { path } from 'stores/ui'
   export let color = 'gray'
   export let type = 'text'
   export let label
@@ -8,7 +9,7 @@
   let input
 
   $: isTitle = label === 'Title' || label === 'Name'
-  $: if (input && isEditing && isTitle) {
+  $: if ($path.action === 'edit' && input && isEditing && isTitle) {
     setTimeout(() => input.focus())
   }
 </script>

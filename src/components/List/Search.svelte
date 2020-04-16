@@ -33,7 +33,7 @@
 </style>
 
 <header
-  class="sticky inset-0 bottom-auto flex items-center px-3 sm:px-4 bg-gray-150
+  class="absolute inset-0 bottom-auto flex items-center px-3 sm:px-4 bg-gray-150
   border-b border-gray-200 h-16 z-10"
 >
   <input

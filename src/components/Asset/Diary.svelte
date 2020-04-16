@@ -8,7 +8,7 @@
   export let action
   const color = 'blue'
 
-  let isEditing = action === 'edit' || action === 'add'
+  let isEditing = action === 'edit' || action === 'add' || action === 'entrust'
 </script>
 
 <Markdown {isEditing} value="{asset.note}" />

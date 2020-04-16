@@ -21,7 +21,7 @@
   $: asset = $assets.find(a => a._id === $path.item)
 </script>
 
-<main class="flex-grow mb-16 mt-4">
+<main class="flex-grow mb-16 mt-4 md:mt-6 xl:mt-8">
   <svelte:component this="{views[$path.asset]}" {asset} {action} />
 </main>
 

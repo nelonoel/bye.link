@@ -14,7 +14,7 @@
   }
   export let action
   const color = 'yellow'
-  let isEditing = action === 'edit' || action === 'add'
+  let isEditing = action === 'edit' || action === 'add' || action === 'entrust'
 </script>
 
 <Text {isEditing} {color} label="Title" value="{asset.title}" />

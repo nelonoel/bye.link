@@ -21,7 +21,10 @@
     }
   }
 
-  $: isEditing = $path.item === 'new' || $path.action === 'edit'
+  $: isEditing =
+    $path.item === 'new' ||
+    $path.action === 'edit' ||
+    $path.action === 'entrust'
   $: color = _asset($path.asset).color
 </script>
 
@@ -43,8 +46,8 @@
     {#if isEditable}
       {#if $path.asset !== 'contacts'}
         <a
-          href="{`${$path.user}/${$path.asset}/${$path.item}/contacts`}"
-          class="flex items-center pl-3 sm:pl-1 lg:pl-3 pr-4 py-4"
+          href="{isEditing ? `${$path.user}/${$path.asset}/${$path.item}/entrust` : null}"
+          class="flex items-center ml-3 sm:ml-1 lg:ml-3 my-3"
         >
           {#each contacts.slice(0, MAX_PREVIEW) as contact}
             <picture
@@ -67,29 +70,40 @@
           {/each}
           {#if contacts.length > MAX_PREVIEW}
             <div
-              class="flex justify-center items-center rounded-full bg-gray-300
-              text-gray-50 relative w-8 h-8 border-2 border-gray-100 text-sm"
+              class="flex flex-shrink-0 justify-center items-center rounded-full
+              bg-gray-300 text-gray-50 relative w-8 h-8 border-2 border-gray-100
+              text-sm"
             >
               +{contacts.length - MAX_PREVIEW}
             </div>
           {:else}
-            <div
-              class="flex justify-center items-center rounded-full bg-gray-300
-              text-gray-50 relative w-8 h-8 border-2 border-gray-100 text-sm"
+            <figure
+              class="flex flex-shrink-0 justify-center items-center rounded-full
+              bg-gray-300 text-gray-50 relative w-8 h-8 border-2 border-gray-100
+              text-sm"
             >
               <svg fill="currentColor" viewBox="0 0 20 20" class="w-4 h-4">
-                <path
-                  fill-rule="evenodd"
-                  d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0
-                  01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                  clip-rule="evenodd"
-                ></path>
+                {#if isEditing}
+                  <path
+                    d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0
+                    016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0
+                    00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5
+                    5 0 015-5z"
+                  ></path>
+                {:else}
+                  <path
+                    fill-rule="evenodd"
+                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0
+                    01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                {/if}
               </svg>
-            </div>
+            </figure>
           {/if}
 
           <span class="ml-2 text-gray-600">
-            {contacts.length > 0 ? 'Shared' : 'Private'}
+            {isEditing ? 'Manage access..' : contacts.length > 0 ? 'Shared' : 'Private'}
           </span>
         </a>
       {/if}
