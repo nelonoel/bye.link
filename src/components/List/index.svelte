@@ -30,6 +30,9 @@
   [data-container] {
     top: 4rem;
   }
+  [data-empty-copy] {
+    max-width: 14rem;
+  }
 </style>
 
 <aside
@@ -45,8 +48,8 @@
     class="absolute top-0 left-0 right-0 bottom-0 overflow-x-hidden
     overflow-y-auto"
   >
-    <ul class="w-full h-full">
-      {#if collection.length > 0}
+    {#if collection.length > 0}
+      <ul class="w-full h-full">
         <VirtualList items="{collection}" let:item>
           <Item
             color="{meta.color}"
@@ -57,8 +60,53 @@
             description="{item[meta.descriptionField] || ''}"
           />
         </VirtualList>
-      {/if}
-    </ul>
+      </ul>
+    {:else}
+      <p
+        class="flex flex-col items-center justify-center h-full p-4
+        text-gray-400 text-center pointer-events-none"
+      >
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          class="w-20 h-20 mb-4 text-gray-250"
+        >
+          <path
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+        {#if $filter.length > 0}
+          <h6 class="text-caps">
+            No {meta.slug === 'diary' ? 'entry' : meta.slug} found for
+          </h6>
+          <div class="font-semibold text-lg break-all">"{$filter}"</div>
+        {:else}
+          <h6 class="text-caps mb-1">
+            No {meta.slug === 'diary' ? 'entry' : meta.slug} created
+          </h6>
+          <div data-empty-copy class="text-lg leading-snug w-full">
+            Create a new one by clicking the
+            <svg
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              class="inline-block w-5 h-5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0
+                100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            button.
+          </div>
+        {/if}
+      </p>
+    {/if}
   </div>
 </aside>
 
