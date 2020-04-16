@@ -31,9 +31,10 @@
     {:else}
       <h6 class="text-caps text-gray-400 mb-1">Card No.</h6>
       <Redacted {color} value="{cardNumber}">
-        <div class="ml-16 py-1">
-          •••• •••• ••••
-          <span class="text-xl ml-2 mr-1">
+        <div class="flex items-center ml-16 py-1">
+          <span class="hidden sm:inline mr-2">•••• ••••</span>
+          <span class="mr-2">••••</span>
+          <span class="text-xl mr-1">
             {cardNumber.substring(cardNumber.length - 4)}
           </span>
         </div>
@@ -53,7 +54,7 @@
       <div class="w-1/2 max-w-full px-4 py-3">
         {#if isEditing}
           <label class="block text-caps text-gray-400 mb-1">
-            {meta ? meta.code.name : 'Verification No.'}
+            {meta ? meta.code.name : 'Code'}
           </label>
           <input
             class="{`bg-transparent border-b-2 border-gray-150 focus:border-${color}-500 text-gray-750 w-full text-xl`}"
@@ -62,7 +63,7 @@
           />
         {:else}
           <h6 class="text-caps text-gray-400 mb-1">
-            {meta ? meta.code.name : 'Verification No.'}
+            {meta ? meta.code.name : 'Code'}
           </h6>
           <Redacted {color} value="{verificationNumber}">•••</Redacted>
         {/if}

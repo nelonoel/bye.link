@@ -4,20 +4,24 @@
   export let lastModified
 </script>
 
+<style>
+  h6 {
+    font-size: 0.6666rem;
+  }
+</style>
+
 <footer class="flex items-center justify-end w-full border-t border-gray-150">
-  <div class="flex flex-wrap items-center px-3 md:px-4 py-2">
+  <div class="flex flex-wrap items-center px-3 md:px-4 py-2 leading-tight">
     <h6 class="text-caps text-gray-300 mr-2">Created at:</h6>
-    <div class="text-gray-400 text-sm leading-tight">{format(createdAt)}</div>
+    <div class="text-gray-400 text-sm">{format(createdAt)}</div>
   </div>
   {#if lastModified - createdAt >= 60000}
     <div
       class="flex flex-wrap items-center border-l border-gray-150 px-3 md:px-4
-      py-2"
+      py-2 leading-tight"
     >
       <h6 class="text-caps text-gray-300 mr-2">Last Modified:</h6>
-      <div class="text-gray-400 text-sm leading-tight">
-        {format(lastModified)}
-      </div>
+      <div class="text-gray-400 text-sm">{format(lastModified)}</div>
     </div>
   {/if}
 </footer>

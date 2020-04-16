@@ -26,6 +26,7 @@
   <div class="w-128 max-w-full mx-auto px-4 pb-3 pt-4">
     {#if isEditing}
       <label class="block text-caps text-gray-400 mb-1">{label}</label>
+      <slot />
       <textarea
         bind:this="{textarea}"
         class="bg-transparent border-b-2 border-gray-150 focus:border-{color}-500

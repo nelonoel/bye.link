@@ -23,10 +23,6 @@
 </script>
 
 <style>
-  aside {
-    --transform-scale-x: 1.0125;
-    --transform-scale-y: 1.0125;
-  }
   [data-container] {
     top: 4rem;
   }
@@ -83,11 +79,9 @@
           <h6 class="text-caps">
             No {meta.slug === 'diary' ? 'entry' : meta.slug} found for
           </h6>
-          <div class="font-semibold text-lg break-all">"{$filter}"</div>
+          <div class="text-lg break-all">"{$filter}"</div>
         {:else}
-          <h6 class="text-caps mb-1">
-            No {meta.slug === 'diary' ? 'entry' : meta.slug} created
-          </h6>
+          <h6 class="text-caps mb-1">{meta.slug} empty</h6>
           <div data-empty-copy class="text-lg leading-snug w-full">
             Create a new one by clicking the
             <svg
@@ -112,5 +106,5 @@
 
 <div
   on:click="{list.hide}"
-  class="{`bg-gray-250 bg-blurred opacity-0 block lg:hidden absolute top-0 bottom-0 right-0 left-0 pointer-events-none transition-opacity duration-200 z-30 ${$list ? 'sm:opacity-90 sm:pointer-events-auto' : ''}`}"
+  class="{`bg-gray-250 opacity-0 block lg:hidden absolute top-0 bottom-0 right-0 left-0 pointer-events-none transition-opacity duration-200 z-30 ${$list ? 'sm:opacity-98 sm:pointer-events-auto' : ''}`}"
 ></div>

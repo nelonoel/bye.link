@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;800&family=IBM+Plex+Mono&display=swap');
 
 * {
   @apply .font-body;
@@ -19,24 +19,13 @@
 
 h1,
 h2,
-h3,
-.cm-header-1,
-.cm-header-2,
-.cm-header-3 {
+h3 {
   @apply .font-extrabold;
 }
 
 h4,
 h5,
 h6,
-.cm-header-4,
-.cm-header-5,
-.cm-header-6,
 strong {
   @apply .font-semibold;
-}
-
-pre,
-code {
-  font-family: @apply .font-body;
 }

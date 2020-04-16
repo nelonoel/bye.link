@@ -42,7 +42,7 @@
     bind:value="{query}"
     bind:this="{inputField}"
     type="search"
-    placeholder="Type to search.."
+    placeholder="{`Search ${$path.asset}..`}"
   />
   <a
     on:click="{list.hide}"
@@ -50,6 +50,9 @@
     class="{`flex flex-shrink-0 items-center justify-center rounded-full
     bg-${color}-400 hover:bg-${color}-450 focus:bg-${color}-450
     text-${color}-800 w-10 h-10 ml-2 transition-color`}"
+    title="{`Add New ${$path.asset === 'diary' ? 'Entry' : $path.asset
+            .substring(0, 1)
+            .toUpperCase() + $path.asset.substring(1, $path.asset.length - 1)}`}"
   >
     <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
       <path

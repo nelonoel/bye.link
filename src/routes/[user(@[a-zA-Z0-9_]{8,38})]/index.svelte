@@ -1,21 +1,60 @@
 <script>
 	import Container from 'components/Main/Container.svelte'
+	import Avatar from 'components/Field/Avatar.svelte'
+	import Text from 'components/Field/Text.svelte'
+	import Description from 'components/Field/Description.svelte'
+	import Note from 'components/Field/Note.svelte'
+
+	export let asset = {
+		picture: '',
+		name: '',
+		email: '',
+		mobile: '',
+		security_question: '',
+		answer: '',
+		note: '',
+		added_by_default: '',
+	}
+	const color = 'gray'
+	const isEditing = false
 </script>
 
-<style>
-	svg {
-		max-width: 40vw;
-	}
-</style>
+<Container>
+	<Avatar {isEditing} {color} src="{asset.picture}" name="{asset.name}" />
+	<Text {isEditing} {color} label="Name" value="{asset.name}" />
+	<Text {isEditing} {color} type="email" label="E-mail" value="{asset.email}">
+		<Description
+			>We'll reach out to them when you become inactive for 40
+			days.</Description
+		>
+	</Text>
+	<Text {isEditing} {color} label="Mobile No." value="{asset.mobile}" />
 
-<Container class="items-center justify-center">
-	<figure class="text-gray-200">
-		<svg fill="currentColor" viewBox="0 0 20 20" class="w-48 h-48">
-			<path
-				fill-rule="evenodd"
-				d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-				clip-rule="evenodd"
-			></path>
-		</svg>
-	</figure>
+	<Text
+		{isEditing}
+		{color}
+		label="Security Question"
+		value="{asset.security_question}"
+	>
+		<Description
+			>Your trusted person needs to answer this to gain access to your
+			assets.</Description
+		>
+	</Text>
+
+	<Text
+		{isEditing}
+		{color}
+		label="Answer to Security Question"
+		value="{asset.answer}"
+		><Description
+			>Case-insensitive. Spaces and symbols are ignored.</Description
+		></Text
+	>
+
+	<Note {isEditing} {color} label="Welcome Note" value="{asset.note}">
+		<Description
+			>Only visible once they gain access to your assets.</Description
+		>
+	</Note>
 </Container>

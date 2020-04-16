@@ -12,7 +12,3 @@
 .transition-color {
   @apply .transition-colors .duration-150 .ease-in;
 }
-
-.bg-blurred {
-  backdrop-filter: blur(3px);
-}

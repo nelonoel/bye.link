@@ -10,7 +10,7 @@
     background: linear-gradient(
       90deg,
       theme('colors.gray.700'),
-      theme('colors.gray.400')
+      theme('colors.gray.200')
     );
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;

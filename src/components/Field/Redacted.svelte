@@ -25,7 +25,7 @@
       isCopied = true
       timeout = setTimeout(() => {
         isCopied = false
-      }, 1600)
+      }, 2000)
     })
   })
 
@@ -41,7 +41,7 @@
   </div>
   <button
     bind:this="{copyButton}"
-    class="flex items-center bg-gray-150 hover:bg-{color}-200 px-3 py-1
+    class="flex items-center bg-gray-150 hover:bg-{color}-200 px-2 py-1
     rounded-full text-gray-650 hover:text-{color}-850 text-sm transition-color"
     class:pointer-events-none="{isCopied}"
   >
@@ -55,11 +55,9 @@
       class="w-4 h-4 mr-1"
     >
       <path
-        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9
-        5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3
-        4h3m-6-4h.01M9 16h.01"
+        d="{`M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2${isCopied ? 'm-6 9l2 2 4-4' : ''}`}"
       ></path>
     </svg>
-    <span>{isCopied ? 'Copied!' : 'Copy'}</span>
+    <span class="text-xs">{isCopied ? 'Copied' : 'Copy'}</span>
   </button>
 </div>

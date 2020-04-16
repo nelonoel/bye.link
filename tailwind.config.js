@@ -173,14 +173,14 @@ module.exports = {
       },
       fontFamily: {
         body: ['"Work Sans"', ...defaultTheme.fontFamily.sans],
-        serif: ['"Libre Baskerville"', ...defaultTheme.fontFamily.serif],
+        mono: ['"IBM Plex Mono"', ...defaultTheme.fontFamily.mono],
       },
       fontSize: {
         xxs: '3vw',
         '5xl': '2.75rem',
       },
       opacity: {
-        90: '90%',
+        98: '98%',
       },
       screens: {
         sm: '500px',

@@ -65,7 +65,7 @@ const onwarn = (warning, onwarn) =>
 const dedupe = importee =>
   importee === 'svelte' || importee.startsWith('svelte/')
 
-const vendor = ['blockstack', 'simplemde']
+const vendor = ['blockstack']
 
 export default {
   client: {
@@ -79,10 +79,6 @@ export default {
       copy({
         targets: [
           { src: 'node_modules/blockstack/dist/**/*', dest: 'static/vendor' },
-          {
-            src: 'node_modules/simplemde/dist/simplemde.min.js',
-            dest: 'static/vendor',
-          },
         ],
         copyOnce: true,
       }),
