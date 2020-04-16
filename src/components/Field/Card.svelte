@@ -3,14 +3,17 @@
   import getCardType from 'credit-card-type'
   import _cards from 'meta/card'
   import Redacted from './Redacted.svelte'
+
   export let color = 'gray'
   export let isEditing
   export let card
+  let value
 
   $: cardNumber = get(card, 'card_number', '')
+  $: value = cardNumber
   $: verificationNumber = get(card, 'verification_number', '')
   $: expiry = get(card, 'expiry', '')
-  $: cardType = getCardType(cardNumber)
+  $: cardType = getCardType(value)
   $: meta = cardType.length === 1 ? cardType[0] : null
 </script>
 
@@ -22,11 +25,12 @@
         <input
           class="{`bg-transparent border-b-2 border-gray-150 focus:border-${color}-500 text-gray-750 w-full text-xl`}"
           type="text"
+          bind:value
         />
       </div>
     {:else}
       <h6 class="text-caps text-gray-400 mb-1">Card No.</h6>
-      <Redacted {color} label="Card No." value="{cardNumber}">
+      <Redacted {color} value="{cardNumber}">
         <div class="ml-16 py-1">
           •••• •••• ••••
           <span class="text-xl ml-2 mr-1">
@@ -49,7 +53,7 @@
       <div class="w-1/2 max-w-full px-4 py-3">
         {#if isEditing}
           <label class="block text-caps text-gray-400 mb-1">
-            Verification No.
+            {meta ? meta.code.name : 'Verification No.'}
           </label>
           <input
             class="{`bg-transparent border-b-2 border-gray-150 focus:border-${color}-500 text-gray-750 w-full text-xl`}"
@@ -57,14 +61,10 @@
             value="{verificationNumber}"
           />
         {:else}
-          <h6 class="text-caps text-gray-400 mb-1">Verification No.</h6>
-          <Redacted
-            {color}
-            label="Verification No."
-            value="{verificationNumber}"
-          >
-            •••
-          </Redacted>
+          <h6 class="text-caps text-gray-400 mb-1">
+            {meta ? meta.code.name : 'Verification No.'}
+          </h6>
+          <Redacted {color} value="{verificationNumber}">•••</Redacted>
         {/if}
       </div>
     {/if}

@@ -5,12 +5,18 @@
   export let value
   export let isEditing
 
+  let previousValue
+  let container
   let mde
   let textarea
+  let preview
+  let mounted = false
 
   $: onMount(() => {
     mde = new SimpleMDE({
+      autofocus: true,
       element: textarea,
+      placeholder: 'Start typing..',
       shortcuts: {
         toggleBlockquote: "Cmd-'",
         toggleBold: 'Cmd-B',
@@ -32,16 +38,21 @@
       styleSelectedText: false,
       toolbar: false,
     })
+    mounted = true
   })
 
   onDestroy(() => {
-    if (mde) {
+    if (mounted) {
       mde = null
     }
   })
 
-  $: if (mde && value) {
+  $: if (mounted && value !== previousValue) {
     mde.value(value)
+    mde.togglePreview()
+    preview = container.querySelector('.editor-preview')
+    preview.style.display = isEditing ? 'none' : 'block'
+    previousValue = value
   }
 </script>
 
@@ -51,10 +62,7 @@
   }
 </style>
 
-<div
-  class="w-160 max-w-full mx-auto px-4 pb-3 pt-4"
-  class:pointer-events-none="{!isEditing}"
->
+<div bind:this="{container}" class="w-160 max-w-full mx-auto px-4 pb-3 pt-4">
   <textarea
     bind:this="{textarea}"
     class="bg-transparent border-b-2 border-gray-150 focus:border-{color}-500

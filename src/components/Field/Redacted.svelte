@@ -5,10 +5,17 @@
   export let color
   export let value
 
-  let isCopied = false
+  let isCopied
   let timeout
   let clipboard
   let copyButton
+  let previousValue
+
+  $: if (previousValue !== value) {
+    isCopied = false
+    clearTimeout(timeout)
+    previousValue = value
+  }
 
   onMount(() => {
     clipboard = new ClipboardJS(copyButton, {
@@ -18,7 +25,7 @@
       isCopied = true
       timeout = setTimeout(() => {
         isCopied = false
-      }, 2000)
+      }, 1600)
     })
   })
 

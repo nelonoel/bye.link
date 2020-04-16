@@ -17,7 +17,7 @@
       />
     {:else}
       <h6 class="text-caps text-gray-400 mb-1">{label}</h6>
-      <Redacted {color} {label} {value}>••••••••••••</Redacted>
+      <Redacted {color} {value}>••••••••••••</Redacted>
     {/if}
   </div>
 {/if}

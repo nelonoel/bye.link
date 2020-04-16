@@ -177,6 +177,7 @@ module.exports = {
       },
       fontSize: {
         xxs: '3vw',
+        '5xl': '2.75rem',
       },
       opacity: {
         90: '90%',

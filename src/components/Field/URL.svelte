@@ -10,7 +10,7 @@
     {#if isEditing}
       <label class="block text-caps text-gray-400 mb-1">{label}</label>
       <input
-        type="text"
+        type="url"
         class="{`bg-transparent border-b-2 border-gray-150 focus:border-${color}-500 text-gray-750 w-full text-xl`}"
         {value}
       />
