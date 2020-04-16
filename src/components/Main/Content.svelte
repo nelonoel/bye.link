@@ -26,5 +26,8 @@
 </main>
 
 {#if action === 'view'}
-  <Dates lastModified="{asset.last_modified}" createdAt="{asset.created_at}" />
+  <Dates
+    lastModified="{asset ? new Date(asset.last_modified) : new Date()}"
+    createdAt="{asset ? new Date(asset.created_at) : new Date()}"
+  />
 {/if}

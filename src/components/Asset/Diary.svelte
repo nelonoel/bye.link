@@ -11,4 +11,4 @@
   let isEditing = action === 'edit' || action === 'add'
 </script>
 
-<Markdown {isEditing} {color} label="Entry" value="{asset.note}" />
+<Markdown {isEditing} {color} value="{asset.note}" />

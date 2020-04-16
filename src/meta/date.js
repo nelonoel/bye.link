@@ -5,4 +5,4 @@ export const format = date =>
     day: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
-  }).format(new Date(date))
+  }).format(date)

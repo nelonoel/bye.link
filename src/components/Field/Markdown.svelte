@@ -2,14 +2,13 @@
   import { onMount, onDestroy } from 'svelte'
 
   export let color = 'gray'
-  export let label
   export let value
   export let isEditing
 
   let mde
   let textarea
 
-  onMount(() => {
+  $: onMount(() => {
     mde = new SimpleMDE({
       element: textarea,
       shortcuts: {
@@ -36,14 +35,13 @@
   })
 
   onDestroy(() => {
-    mde = null
+    if (mde) {
+      mde = null
+    }
   })
 
-  $: if (mde) {
+  $: if (mde && value) {
     mde.value(value)
-  }
-  $: if (!isEditing) {
-    mde && mde.togglePreview()
   }
 </script>
 
@@ -53,7 +51,10 @@
   }
 </style>
 
-<div class="w-160 max-w-full mx-auto px-4 pb-3 pt-4">
+<div
+  class="w-160 max-w-full mx-auto px-4 pb-3 pt-4"
+  class:pointer-events-none="{!isEditing}"
+>
   <textarea
     bind:this="{textarea}"
     class="bg-transparent border-b-2 border-gray-150 focus:border-{color}-500

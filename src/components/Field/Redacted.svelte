@@ -1,5 +1,5 @@
 <script>
-  import { onMount, onDestroy } from 'svelte'
+  import { onMount, onDestroy, beforeUpdate } from 'svelte'
   import ClipboardJS from 'clipboard'
 
   export let color

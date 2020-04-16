@@ -145,7 +145,7 @@
   @apply .text-gray-200;
 }
 .cm-s-default .cm-link {
-  @apply .text-blue-600;
+  @apply .text-blue-650;
 }
 .cm-invalidchar,
 .cm-s-default .cm-error {
@@ -621,9 +621,13 @@ span.CodeMirror-selectedtext {
 .editor-preview-active-side {
   display: block;
 }
-.editor-preview-side > p,
-.editor-preview > p {
-  margin-top: 1em;
+.editor-preview .editor-preview-side > p:not(:first-child),
+.editor-preview > p:not(:first-child) {
+  @apply .mt-4;
+}
+.editor-preview a[href],
+.editor-preview a[href] {
+  @apply .text-blue-650 .underline;
 }
 .editor-preview pre,
 .editor-preview-side pre {
@@ -680,7 +684,7 @@ span.CodeMirror-selectedtext {
   @apply .text-gray-850;
 }
 .CodeMirror .CodeMirror-code .cm-url {
-  @apply .text-blue-600;
+  @apply .text-blue-650;
 }
 .CodeMirror .CodeMirror-code .cm-strikethrough {
   text-decoration: line-through;
