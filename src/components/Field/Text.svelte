@@ -1,9 +1,15 @@
 <script>
+  import { onMount } from 'svelte'
   export let color = 'gray'
   export let type = 'text'
   export let label
   export let value
   export let isEditing
+  let input
+
+  $: if (input && isEditing && label === 'Title') {
+    setTimeout(() => input.focus())
+  }
 </script>
 
 {#if value || isEditing}
@@ -11,6 +17,7 @@
     {#if isEditing}
       <label class="block text-caps text-gray-400 mb-1">{label}</label>
       <input
+        bind:this="{input}"
         class="{`bg-transparent border-b-2 border-gray-150 focus:border-${color}-500 text-gray-750 w-full ${label === 'Title' ? '-mt-1 font-semibold text-3xl' : 'text-xl'}`}"
         {type}
         {value}
