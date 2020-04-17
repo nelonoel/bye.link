@@ -21,13 +21,18 @@
   $: asset = $assets.find(a => a._id === $path.item)
 </script>
 
-<main class="flex-grow mb-16 mt-4 md:mt-6 xl:mt-8">
-  <svelte:component this="{views[$path.asset]}" {asset} {action} />
-</main>
+<main
+  class="flex flex-col flex-grow overflow-x-hidden overflow-y-auto sm:mt-6
+  lg:mt-8"
+>
+  <section class="flex-grow pb-4">
+    <svelte:component this="{views[$path.asset]}" {asset} {action} />
+  </section>
 
-{#if action === 'view'}
-  <Dates
-    lastModified="{asset ? new Date(asset.last_modified) : new Date()}"
-    createdAt="{asset ? new Date(asset.created_at) : new Date()}"
-  />
-{/if}
+  {#if action === 'view'}
+    <Dates
+      lastModified="{asset ? new Date(asset.last_modified) : new Date()}"
+      createdAt="{asset ? new Date(asset.created_at) : new Date()}"
+    />
+  {/if}
+</main>

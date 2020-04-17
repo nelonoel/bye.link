@@ -1,4 +1,5 @@
 <script>
+  import Title from 'components/Field/Title.svelte'
   import Text from 'components/Field/Text.svelte'
   import Card from 'components/Field/Card.svelte'
   import Note from 'components/Field/Note.svelte'
@@ -17,7 +18,13 @@
   let isEditing = action === 'edit' || action === 'add' || action === 'entrust'
 </script>
 
-<Text {isEditing} {color} label="Title" value="{asset.title}" />
+<Title
+  autofocus="{action === 'edit' || action === 'add'}"
+  {isEditing}
+  {color}
+  label="Title"
+  value="{asset.title}"
+/>
 <Text {isEditing} {color} label="Account Holder" value="{asset.card_holder}" />
 <Card {isEditing} {color} card="{{ ...asset }}" />
 <Note {isEditing} {color} label="Note" value="{asset.note}" />

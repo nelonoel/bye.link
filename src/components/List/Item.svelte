@@ -51,9 +51,7 @@
       </svg>
     </figure>
     <div class="flex flex-col overflow-hidden">
-      <strong
-        class="{`block text-md truncate leading-tight text-${accent}-800`}"
-      >
+      <strong class="{`block truncate leading-tight text-${accent}-800`}">
         {@html highlightedTitle}
       </strong>
       <span

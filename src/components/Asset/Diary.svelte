@@ -11,4 +11,8 @@
   let isEditing = action === 'edit' || action === 'add' || action === 'entrust'
 </script>
 
-<Markdown {isEditing} value="{asset.note}" />
+<Markdown
+  autofocus="{action === 'edit' || action === 'add'}"
+  {isEditing}
+  value="{asset.note}"
+/>

@@ -1,15 +1,15 @@
-<style>
-  .hide {
-    display: none;
-  }
-</style>
-
 <script>
   import NavLink from './Link.svelte'
   export let user
   export let asset
   export let minimal = false
 </script>
+
+<style>
+  .hide {
+    display: none;
+  }
+</style>
 
 <nav class="{`py-0 xl:py-4 ${$$props.class || ''}`}">
   <h6 class="text-caps px-4 text-gray-600 mb-2 hidden xl:block">Settings</h6>

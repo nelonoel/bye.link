@@ -1,14 +1,24 @@
 <script>
+	import { onMount } from 'svelte'
   import { path } from 'stores/ui'
   import Nav from 'components/Nav/index.svelte'
   import MobileNav from 'components/Nav/Mobile.svelte'
 
   export let segment
+  let container
   $: path.setSlug('asset', segment)
+
+  const fullscreen = () => {
+  	container.style.maxHeight = window.innerHeight + 'px'
+  }
+  onMount(fullscreen)
 </script>
 
+<svelte:window on:resize={fullscreen} />
+
 <div
-  class="flex flex-col-reverse sm:flex-col xl:flex-row min-h-screen w-full
+	bind:this={container}
+  class="flex flex-col-reverse sm:flex-col xl:flex-row h-screen w-full
   bg-gray-900 overflow-hidden">
   <Nav user={$path.user} asset={segment} />
   <section

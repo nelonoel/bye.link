@@ -17,6 +17,11 @@
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
+input,
+textarea {
+  @apply .rounded-none;
+}
+
 h1,
 h2,
 h3 {

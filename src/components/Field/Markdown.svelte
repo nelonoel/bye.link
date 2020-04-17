@@ -6,6 +6,7 @@
 
   export let value
   export let isEditing
+  export let autofocus = true
 
   let sanitize
   let textarea
@@ -20,7 +21,7 @@
     preview = sanitize(marked(value))
   }
 
-  $: if (textarea && isEditing) {
+  $: if (textarea && autofocus) {
     setTimeout(() => textarea.focus())
   }
 </script>
@@ -30,22 +31,22 @@
     @apply .leading-relaxed .text-gray-850;
 
     h1 {
-      @apply .text-5xl;
+      @apply .text-5xl .leading-tight;
     }
     h2 {
-      @apply .text-4xl .text-gray-750;
+      @apply .text-4xl .text-gray-750 .leading-tight;
     }
     h3 {
-      @apply .text-3xl .font-semibold .text-gray-700;
+      @apply .text-3xl .font-semibold .text-gray-700 .leading-tight;
     }
     h4 {
-      @apply .text-2xl .font-semibold .text-gray-650;
+      @apply .text-2xl .font-semibold .text-gray-650 .leading-tight;
     }
     h5 {
-      @apply .text-xl .font-semibold .text-gray-600;
+      @apply .text-xl .font-semibold .text-gray-600 .leading-tight;
     }
     h6 {
-      @apply .text-lg .font-semibold .text-gray-550;
+      @apply .text-lg .font-semibold .text-gray-550 .leading-tight;
     }
     hr {
       @apply .mx-auto .my-20 .w-10 .border-t-4 .border-gray-200;
@@ -70,15 +71,16 @@
     code {
       @apply .bg-gray-150 .rounded-sm;
     }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-top: 1.5em;
-      & + * {
-        margin-top: 0.125em;
+    p,
+    blockquote,
+    pre {
+      & + h1,
+      & + h2,
+      & + h3,
+      & + h4,
+      & + h5,
+      & + h6 {
+        margin-top: 1em;
       }
     }
   }
@@ -93,12 +95,12 @@
       <textarea
         bind:this="{textarea}"
         class="bg-transparent font-mono text-gray-850 leading-relaxed w-full
-        pb-3 placeholder-gray-500"
+        py-4 placeholder-gray-500"
         placeholder="Start typing.."
         {value}
       ></textarea>
     {:else if preview}
-      <section id="markdown">
+      <section id="markdown" class="text-lg">
         {@html preview}
       </section>
     {:else}

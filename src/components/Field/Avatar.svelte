@@ -29,20 +29,11 @@
   input[type='file'] {
     display: none;
   }
-  [data-container] {
-    @apply .bg-no-repeat;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23abaaa9' viewBox='0 0 20 20' class='w-8 h-8'%3E%3Cpath fill-rule='evenodd' d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");
-    background-position: center -10%;
-    background-size: 115%;
-  }
 </style>
 
 {#if src || isEditing}
-  <div class="w-32 mx-auto mb-4 relative">
-    <div
-      data-container
-      class="rounded-full bg-gray-200 w-32 h-32 overflow-hidden relative"
-    >
+  <div class="w-24 mx-auto mt-4 mb-2 relative">
+    <div class="rounded-full bg-gray-50 w-24 h-24 overflow-hidden relative">
       {#if src}
         <img
           class="absolute object-cover object-center h-full w-full"
