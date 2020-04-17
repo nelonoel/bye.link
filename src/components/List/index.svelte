@@ -1,10 +1,14 @@
 <script>
+  import { onMount } from 'svelte'
   import VirtualList from '@sveltejs/svelte-virtual-list'
   import { list, path, filter } from 'stores/ui'
   import assets from 'stores/assets'
   import _assets from 'meta/asset'
   import Search from './Search.svelte'
   import Item from './Item.svelte'
+
+  let virtualList
+  let previousAsset
 
   $: applyFilter = i => {
     return (
@@ -20,6 +24,14 @@
     .sort((a, b) =>
       new Date(a[meta.sortBy]) <= new Date(b[meta.sortBy]) ? 1 : -1
     )
+  $: if (virtualList && previousAsset !== $path.asset) {
+    virtualList.scrollTo(0, 0)
+    previousAsset = $path.asset
+  }
+
+  onMount(() => {
+    virtualList = document.querySelector('svelte-virtual-list-viewport')
+  })
 </script>
 
 <style>
